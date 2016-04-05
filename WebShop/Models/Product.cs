@@ -21,5 +21,10 @@ namespace WebShop.Models
             Price = pPrice;
             NumberInStock = pNumInStock;
         }
+
+        public void ReduceStockCount()
+        {
+            NumberInStock--;
+        }
     }
 }
