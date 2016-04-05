@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Hemsidans namn", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @* @Html.ActionLink("Hemsidans namn", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -30,18 +30,22 @@
                             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                         </form>
                     </li>
-                    </ul>
+                </ul>
                 <ul class="nav navbar-nav topright">
                     <li style="color: white;"><a>Login</a></li>
-                    <li><a href="cart.cshtml"><span class="glyphicon glyphicon-shopping-cart cart">0</span></a></li>
+                    <li><a @*href="Lägg till länk Här"*@><span class="glyphicon glyphicon-shopping-cart cart">0</span></a></li>
                 </ul>
             </div>
         </div>
     </div>
-
+    <a @*href="Länk till första sidan här"*@>
+        <div class="companyLogo">
+            NamnetHär
+        </div>
+    </a>
     <div class="container body-content">
         @RenderBody()
-                
+
         <footer class="footer">
             <hr />
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
