@@ -34,23 +34,35 @@
                         </form>
                     </li>
                 </ul>
-                <form class="topright form-inline">
-                    @{ if (!IsLoggedIn)
-                        {
-                            <input class="form-control" placeholder="Email" />
-                            <input class="form-control" placeholder="Password" />
-                            <button class="btn btn-default">Login</button>
-                        }
-                        else
-                        {
-                            <ul>
-                                <li><a @*href="Lägg till länk Här"*@><span class="glyphicon glyphicon-shopping-cart cart">0</span></a></li>
-                            </ul>
-                            <button>Log out</button>
-                        }
-                    }
 
-                </form>
+                @{ if (!IsLoggedIn)
+                 {
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <form class="navbar-form navbar-right">
+                                <input class="form-control loginForms" placeholder="Email" />
+                                <input class="form-control loginForms" placeholder="Password" type="password" />
+                                <button class="btn btn-default">Login</button>
+                            </form>
+                        </li>
+
+                    </ul>
+                 }
+                 else
+                 {
+                    <ul>
+                        <li>
+                            <div class="navbar-btn navbar-right">
+                                <a @*href="Lägg till länk Här"*@><span class="glyphicon glyphicon-shopping-cart cart">0</span></a>
+                                <button class="btn btn-default">Log out</button>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                 }
+                }
             </div>
         </div>
     </div>
