@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     int i = 0;
 }
-
+<p>@Session["Y"]</p>
 <div class="row">
     <div class="col-xs-12 col-sm-8">
 
@@ -39,8 +39,9 @@
                         </form>
                     </td>
                     <td>
-                        <form action="" value="@i">
-                            <button class="" type="submit" name="addToCart">
+                        <form action="/Default/AddToCart" method="post">
+                            <input type="hidden" name="addtocart" value=@i />
+                            <button class="" type="submit">
                                 Add to cart
                             </button>
                         </form>
