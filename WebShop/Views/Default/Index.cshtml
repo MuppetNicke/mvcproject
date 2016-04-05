@@ -4,50 +4,63 @@
     ViewBag.Title = "Index";
     int i = 0;
 }
-<div class="row">
-    hej
-</div>
-<div class="row">
-    <table class="table">
 
-        <tr>
-            <td><h4>Product</h4></td>
-            <td><h4>Price</h4></td>
-            <td><h4>In stock</h4></td>
-            <td></td>
-            <td></td>
-        </tr>
-        
-        @foreach (var item in Model)
-        {
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <table class="table">
 
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberInStock)
-                </td>
-                <td>
-                    <form>
-                        <button>
-                            Info
-                        </button>
-                    </form>
-                </td>
-                <td>
-                    <form>
-                        <button>
-                            Add to cart
-                        </button>
-                    </form>
-                </td>
-                @{ i++; }
+                <td><h4>Product</h4></td>
+                <td><h4>Price</h4></td>
+                <td><h4>In stock</h4></td>
+                <td></td>
+                <td></td>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberInStock)
+                    </td>
+                    <td>
+                        <form>
+                            <button>
+                                Info
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="" value="@i">
+                            <button class="" type="submit" name="addToCart">
+                                Add to cart
+                            </button>
+                        </form>
+                    </td>
+                    @{ i++; }
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+
+        <h2>News</h2>
+        <p>Bacon ipsum dolor amet salami bacon ribeye, beef beef ribs alcatra short loin tenderloin meatloaf kevin drumstick. 
+        Turducken kevin tail pork belly, ground round pork loin ball tip shankle short loin sausage brisket. Short ribs frankfurter 
+        cupim shank beef ribs, andouille corned beef meatloaf brisket t-bone. Bresaola beef kevin turkey turducken prosciutto strip 
+        steak pancetta tri-tip shankle. Alcatra strip steak pig, capicola t-bone turducken bacon bresaola pork chop pancetta picanha. 
+        Venison swine jowl prosciutto shank turkey alcatra, pig pork short ribs biltong cupim cow. Shank alcatra ham kevin, beef ribs 
+        filet mignon turkey short loin meatball bresaola ribeye flank jowl pastrami porchetta.
+        </p>    
+    </div>
 </div>
 
