@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{bool IsLoggedIn = (bool)Session["UserLoggedIn"]; }
+<!DOCTYPE html>
+
 <html>
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -31,10 +34,23 @@
                         </form>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav topright">
-                    <li style="color: white;"><a>Login</a></li>
-                    <li><a @*href="Lägg till länk Här"*@><span class="glyphicon glyphicon-shopping-cart cart">0</span></a></li>
-                </ul>
+                <form class="topright form-inline">
+                    @{ if (!IsLoggedIn)
+                        {
+                            <input class="form-control" placeholder="Email" />
+                            <input class="form-control" placeholder="Password" />
+                            <button class="btn btn-default">Login</button>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li><a @*href="Lägg till länk Här"*@><span class="glyphicon glyphicon-shopping-cart cart">0</span></a></li>
+                            </ul>
+                            <button>Log out</button>
+                        }
+                    }
+
+                </form>
             </div>
         </div>
     </div>

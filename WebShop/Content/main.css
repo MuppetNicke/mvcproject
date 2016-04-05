@@ -22,9 +22,13 @@
 
 .companyLogo {
     margin: auto;
-    width: 951.5px;
+    /*width: 951.5px;*/
     text-align: center;
     padding: 1rem;
     background-color: #efefef;
-    font-size: 16px;
+    font-size: 46px;
+}
+
+.loginForms{
+    margin: 15px 0 0 5px;
 }
