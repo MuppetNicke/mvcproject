@@ -42,7 +42,7 @@ namespace WebShop
             {
                 new User("admin", "admin@shop.eu", "admin"),
                 new User("Mr Black", "black@google.com", "1234"),
-                new User("Mr Ping", "pink@google.com", "2345");
+                new User("Mr Pink", "pink@google.com", "2345")
             };
         }
 
