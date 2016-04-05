@@ -7,8 +7,18 @@
 
 <div class="row">
     <table class="table">
+
+        <tr>
+            <td><h4>Product</h4></td>
+            <td><h4>Price</h4></td>
+            <td><h4>In stock</h4></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
         @foreach (var item in Model)
         {
+
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -20,7 +30,18 @@
                     @Html.DisplayFor(modelItem => item.NumberInStock)
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "DeleteEvent", "Event", new { id = i }, null)
+                    <form>
+                        <button>
+                            Info
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <button>
+                            Add to cart
+                        </button>
+                    </form>
                 </td>
                 @{ i++; }
             </tr>
