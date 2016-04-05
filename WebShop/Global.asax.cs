@@ -24,30 +24,27 @@ namespace WebShop
             Session["ListOfProducts"] = new List<Product>()
             {
 
-                new Product("Computer", 20000, 3),
-                new Product("Bike", 2000, 1),
-                new Product("Cat", 2, 3),
-                new Product("LaFerarri", 42120000, 3),
-                new Product("iPhone7", 14000, 90),
-                new Product("MackBok", 299, 8),
-                new Product("Random Laptop", 499, 12),
-                new Product("Porche Carerra", 300000, 11),
-                new Product("Microwave", 20, 4),
-                new Product("Big Boat", 99000000, 1),
-                new Product("Small Boat", 100, 30),
-                new Product("Android phone", 80, 2)
+                new Product("Tomato", 20, 3),
+                new Product("Cucumber", 12, 1),
+                new Product("Potatoes", 2, 3),
+                new Product("Pasta", 41, 3),
+                new Product("Rice", 11, 90),
+                new Product("Hummus", 299, 8),
+                new Product("Cola", 499, 12),
+                new Product("Water", 300, 11),
+                new Product("T-bone", 2010, 4),
+                new Product("Salomon", 9900, 1),
+                new Product("Fries", 100, 30),
+                new Product("Watermelon", 80, 2)
             };
 
             Session["ListOfUsers"] = new List<User>()
             {
                 new User("admin", "admin@shop.eu", "admin"),
-                new User("Mr Black", "black@google.com", "1234"),
-                new User("Mr Pink", "pink@google.com", "2345")
+                new User("MrBlack", "black@google.com", "1234"),
+                new User("MrPink", "pink@google.com", "2345")
             };
         }
-
-
-
     }
 }
 
