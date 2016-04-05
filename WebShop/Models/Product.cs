@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebShop.Models
 {
-    class Product
+    public class Product
     {
 
         public string Name { get; private set; }

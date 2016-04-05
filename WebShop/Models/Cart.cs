@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebShop.Models
 {
-    class Cart
+    public class Cart
     {
         public List<Product> ProductList;
 

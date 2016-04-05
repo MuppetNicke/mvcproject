@@ -13,7 +13,6 @@ namespace WebShop
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Session_Start();
         }
 
         protected void Session_Start()

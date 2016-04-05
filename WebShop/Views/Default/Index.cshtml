@@ -1,6 +1,30 @@
-﻿@{
+﻿@model IEnumerable<WebShop.Models.Product>
+
+@{
     ViewBag.Title = "Index";
+    int i = 0;
 }
 
-<h2>Index</h2>
+<div class="row">
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberInStock)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteEvent", "Event", new { id = i }, null)
+                </td>
+                @{ i++; }
+            </tr>
+        }
+    </table>
+</div>
 
