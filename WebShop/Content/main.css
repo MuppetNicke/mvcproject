@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.cart {
+    margin: -4px 0px 0 0;
+    font-size: 1.4em;
+}
+.topright{
+     float: right;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  /*background-color: #efefef;*/
+  text-align: center;
+}
