@@ -14,5 +14,10 @@ namespace WebShop.Models
         {
             ProductList = new List<Product>();
         }
+
+        public void AddProduct(Product pProduct)
+        {
+            ProductList.Add(pProduct);
+        }
     }
 }
