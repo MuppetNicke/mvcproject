@@ -19,6 +19,7 @@ namespace WebShop
         {
             Session["UserLoggedIn"] = false;
             Session["Cart"] = new Cart();
+            Session["CurrentUser"] = "admin";
 
             Session["ListOfProducts"] = new List<Product>()
             {
