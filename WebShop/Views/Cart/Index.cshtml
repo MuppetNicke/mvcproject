@@ -1,32 +1,49 @@
 ﻿@model WebShop.Models.Cart
 @{ 
     int totalPrice = 0;
+    int i = 0;
 }
 
 <h2>Cart</h2>
 
-<table>
-
-    <tr>
-        <td>Product</td>
-        <td>Price</td>
-        <td>No Items</td>
-    </tr>
-
-    @foreach (var item in Model.ProductList)
-    {
-        <tr>
-            <td>@item.Key.Name</td>
-            <td>@item.Key.Price</td>
-            <td>@item.Value</td>
-        </tr>
-        {
-            totalPrice = totalPrice + item.Key.Price;
-        }
-    }
+<div class="row">
     
-    <tr>
-        <td><p>Total: @totalPrice &#36;</p></td>
-    </tr>
+    <div class="col-xs-12">
+    
+            <table>
 
-</table>
+            <tr>
+                <td>Product</td>
+                <td>Price</td>
+                <td>No Items</td>
+            </tr>
+
+            @foreach (var item in Model.ProductList)
+            {
+                <tr>
+                    <td>@item.Key.Name</td>
+                    <td>@item.Key.Price</td>
+                    <td>@item.Value</td>
+                    <td><span class="glyphicon glyphicon-plus"></span></td>
+                    <td><a href="@Url.Action("RemoveItem","Cart", new { id = @i })"><span class=" glyphicon glyphicon-minus"></span></a></td>
+                </tr>
+                {
+                    totalPrice = totalPrice + item.Key.Price;
+                    i++;
+                }
+            }
+
+            <tr>
+                <td><p>Total: @totalPrice &#36;</p></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <form class="form-group">
+        <button class="btn btn-default">Checkout!</button>
+    </form>
+</div>
+

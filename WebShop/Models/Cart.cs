@@ -31,5 +31,19 @@ namespace WebShop.Models
                 ProductList.Add(pProduct, 1);
             }
         }
+
+        public void RemoveProduct(Product pProduct)
+        {
+
+            if (ProductList.ContainsKey(pProduct) && ProductList[pProduct]>1)
+            {
+                ProductList[pProduct] -= 1;
+            }
+
+            else
+            {
+                ProductList.Remove(pProduct);
+            }
+        }
     }
 }
