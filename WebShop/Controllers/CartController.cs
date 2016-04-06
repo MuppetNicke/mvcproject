@@ -13,7 +13,7 @@ namespace WebShop.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            return View(Session["Cart"]);
         }
 
         [HttpPost]
