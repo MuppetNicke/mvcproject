@@ -36,5 +36,13 @@ namespace WebShop.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult GetProduct()
+        {
+            Product tmpProduct = new Product("Banan", 200, 40);
+
+            return View(tmpProduct);
+        }
     }
 }
