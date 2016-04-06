@@ -17,7 +17,7 @@ namespace WebShop
 
         protected void Session_Start()
         {
-            Session["UserLoggedIn"] = true;
+            Session["UserLoggedIn"] = false;
             Session["Cart"] = new Cart();
 
             Session["ListOfProducts"] = new List<Product>()
