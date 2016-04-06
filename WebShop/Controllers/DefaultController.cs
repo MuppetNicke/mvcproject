@@ -16,13 +16,6 @@ namespace WebShop.Controllers
             return View(Session["ListOfProducts"]);
         }
 
-        [HttpGet]
-        public ActionResult GetProduct(int id)
-        {
-            List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
-            Product tmpProduct = tmpList[id];
-
-            return View(tmpProduct);
-        }
+        
     }
 }
