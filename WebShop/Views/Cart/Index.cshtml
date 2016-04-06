@@ -1,7 +1,32 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model WebShop.Models.Cart
+@{ 
+    int totalPrice = 0;
 }
 
-<h2>Index</h2>
+<h2>Cart</h2>
 
+<table>
+
+    <tr>
+        <td>Product</td>
+        <td>Price</td>
+        <td>No Items</td>
+    </tr>
+
+    @foreach (var item in Model.ProductList)
+    {
+        <tr>
+            <td>@item.Key.Name</td>
+            <td>@item.Key.Price</td>
+            <td>@item.Value</td>
+        </tr>
+        {
+            totalPrice = totalPrice + item.Key.Price;
+        }
+    }
+    
+    <tr>
+        <td><p>Total: @totalPrice &#36;</p></td>
+    </tr>
+
+</table>
