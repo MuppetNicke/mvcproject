@@ -23,7 +23,9 @@
 
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @*@Html.DisplayFor(modelItem => item.Name)*@
+                        @Html.ActionLink(item.Name, "GetProduct", "Default", new { id = i }, null)
+                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)

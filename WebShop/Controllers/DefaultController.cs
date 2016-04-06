@@ -38,9 +38,10 @@ namespace WebShop.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetProduct()
+        public ActionResult GetProduct(int id)
         {
-            Product tmpProduct = new Product("Banan", 200, 40);
+            List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
+            Product tmpProduct = tmpList[id];
 
             return View(tmpProduct);
         }
