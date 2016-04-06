@@ -61,23 +61,22 @@ namespace WebShop.Controllers
         {
             int id = 0;
             string prodSearch = Request["searchField"];
-            int productId = 0;
 
             List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
+            List<Product> newList = new List<Product>();
+
             foreach (var product in tmpList)
             {
 
-                if (prodSearch == product.Name)
+                if (product.Name.ToLower().Contains(prodSearch.ToLower()))
                 {
-                    productId = id;
-
-                    return RedirectToAction("GetProduct/" + id);
+                    newList.Add(tmpList[id]);
                 }
 
                 id++;
             }
 
-            return Redirect("/Default/Index");
+            return View(newList);
         }
     }
 }

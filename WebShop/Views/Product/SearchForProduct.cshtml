@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebShop.Models.Product>
+@{ int i = 0; }
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <table class="table">
+
+            <tr>
+                <td><h4>Product</h4></td>
+                <td><h4>Price</h4></td>
+                <td><h4>In stock</h4></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "GetProduct", "Product", new { id = i }, null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberInStock)
+                    </td>
+                    <td>
+                        <form>
+                            <button>
+                                Info
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/Cart/AddToCart" method="post">
+                            <input type="hidden" name="addtocart" value=@i />
+                            <button class="" type="submit">
+                                Add to cart
+                            </button>
+                        </form>
+                    </td>
+                    @{ if ((string)Session["CurrentUser"] == "admin")
+                       {
+                            <td>
+                                <form action="/Product/RemoveProduct" method="post">
+                                    <input type="hidden" name="removeproduct" value=@i />
+                                    <button name="removeBtn" class="" type="submit">
+                                        Remove product
+                                    </button>
+                                </form>
+                            </td>
+                       }
+                    }
+                    @{ i++; }
+                </tr>
+            }
+        </table>
+    </div>
+</div>
