@@ -25,6 +25,27 @@ namespace WebShop.Controllers
 
             return Redirect("/Default/Index");
         }
+        [HttpPost]
+        public ActionResult RemoveProduct()
+        {
+
+            var id = Request["removeproduct"];
+            int productId = int.Parse(id);
+            int choosenProduct = 0;
+
+            List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
+            foreach (var product in tmpList)
+            {
+                if (choosenProduct == productId)
+                {
+                    tmpList.Remove(product);
+                    Session["ListOfProducts"] = tmpList;
+                    return Redirect("/Default/Index");
+                }
+                choosenProduct++;
+            }
+            return Redirect("/Default/Index");
+        }
 
         [HttpGet]
         public ActionResult GetProduct(int id)
