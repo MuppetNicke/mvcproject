@@ -8,16 +8,25 @@ namespace WebShop.Models
 {
     public class Cart
     {
-        public List<Product> ProductList;
+        private Dictionary<Product, int> productList;
 
         public Cart()
         {
-            ProductList = new List<Product>();
+            productList = new Dictionary<Product, int>();
         }
 
         public void AddProduct(Product pProduct)
         {
-            ProductList.Add(pProduct);
+
+            if (productList.ContainsKey(pProduct))
+            {
+                productList[pProduct] += 1;
+            }
+
+            else
+            {
+                productList.Add(pProduct, 1);
+            }
         }
     }
 }
