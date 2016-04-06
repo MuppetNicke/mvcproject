@@ -22,9 +22,24 @@ namespace WebShop.Models
             NumberInStock = pNumInStock;
         }
 
-        public void ReduceStockCount()
+        public bool ReduceStockCount()
         {
-            NumberInStock--;
+            if (NumberInStock <= 0)
+            {
+                return false;
+            }
+
+            else
+            {
+                NumberInStock--;
+                return true;
+            }
+
+        }
+
+        public void IncreaseStockCount()
+        {
+            NumberInStock++;
         }
     }
 }

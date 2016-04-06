@@ -24,7 +24,7 @@
                     <td>@item.Key.Name</td>
                     <td>@item.Key.Price</td>
                     <td>@item.Value</td>
-                    <td><span class="glyphicon glyphicon-plus"></span></td>
+                    <td><a href="@Url.Action("AddItem","Cart", new { id = @i })"><span class=" glyphicon glyphicon-plus"></span></a></td>
                     <td><a href="@Url.Action("RemoveItem","Cart", new { id = @i })"><span class=" glyphicon glyphicon-minus"></span></a></td>
                 </tr>
                 {
