@@ -15,7 +15,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding:em;
+    /*padding:em;*/
     /*background-color: #efefef;*/
     text-align: center;
 }
@@ -33,4 +33,7 @@
     margin: 0px 0 0 0;
     width: 140px;
     font-size: 13.3333px;
+}
+.registerBtn{
+   margin: -10px 0px 0px 0px ;
 }
