@@ -35,7 +35,20 @@ namespace WebShop.Controllers
                 Session["Cart"] = tmpCart;
             }
 
-            return RedirectToAction("../Default/Index");
+            return Redirect("/Default/Index");
+        }
+
+        [HttpGet]
+        public ActionResult RemoveItem(string id)
+        {
+            int index = int.Parse(id);
+
+            Cart tmpCart = (Cart)Session["Cart"];
+            Product tmpProduct = tmpCart.ProductList.ElementAt(index).Key;
+            tmpCart.RemoveProduct(tmpProduct);
+            Session["Cart"] = tmpCart;
+
+            return RedirectToAction("Index");
         }
     }
 }
