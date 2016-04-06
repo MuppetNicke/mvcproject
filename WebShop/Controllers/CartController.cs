@@ -66,20 +66,17 @@ namespace WebShop.Controllers
         {
 
             int index = int.Parse(id);
-
+            Cart tmpCart = (Cart)Session["Cart"];
+            Product tmpProduct = tmpCart.ProductList.ElementAt(index).Key;
             List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
 
-            if (tmpList[index].ReduceStockCount())
+            if (tmpList.Find(x=>x.Name == tmpProduct.Name).ReduceStockCount())
             {
-                tmpList[index].ReduceStockCount();
-                Session["ListOfProducts"] = tmpList;
 
-                Cart tmpCart = (Cart)Session["Cart"];
-                Product tmpProduct = tmpCart.ProductList.ElementAt(index).Key;
+                Session["ListOfProducts"] = tmpList;
                 tmpCart.AddProduct(tmpProduct);
                 Session["Cart"] = tmpCart;
             }
-
 
             return RedirectToAction("Index");
         }
