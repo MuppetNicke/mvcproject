@@ -19,29 +19,35 @@ namespace WebShop.Controllers
         [HttpPost]
         public ActionResult Register()
         {
+
             List<User> tmpList = (List<User>)Session["ListOfUsers"];
+            string tmpMail = Request["mailInput"];
+            bool mailFound = false;
+
+            foreach(User x in tmpList)
+            {
+                if(x.Email == tmpMail)
+                {
+                    mailFound = true;
+                    break;
+                }
+            }
+
+            if (mailFound)
+            {
+                return Redirect("/Default/Index");
+            }
 
             string tmpName = Request["nameInput"];
-            string tmpMail = Request["mailInput"];
             string tmpPassword = Request["passwordInput"];
 
-            string checkChars = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{ 2,9})$";
-
-            if (tmpName.Length >= 6 && tmpMail != null && Regex.IsMatch(tmpMail, checkChars) && tmpPassword.Length >= 6)
-            {
-                tmpList.Add(new User(tmpName, tmpMail, tmpPassword));
-                tmpList = (List<User>)Session["ListOfUsers"];
-            }
-
-            else
-            {
-                return Redirect("/User/Index");
-            }
+            tmpList.Add(new User(tmpName, tmpMail, tmpPassword));
+            tmpList = (List<User>)Session["ListOfUsers"];
 
             return Redirect("/Default/Index");
-
         }
 
+        
         [HttpPost]
         public ActionResult Login()
         {
