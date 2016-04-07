@@ -132,6 +132,9 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Product\SearchForProduct.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Emailexists.cshtml" />
+    <Content Include="Views\User\Regsuccess.cshtml" />
+    <Content Include="Views\User\Regerror.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
