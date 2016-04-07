@@ -48,8 +48,8 @@
 
                                     <li>
                                         <form action="/User/Login" method="post" class="navbar-form navbar-right">
-                                            <input class="form-control loginForms" placeholder="Email" />
-                                            <input class="form-control loginForms" placeholder="Password" type="password" />
+                                            <input class="form-control loginForms" name = "emailInput" placeholder="Email" />
+                                            <input class="form-control loginForms" name = "passwordInput" placeholder="Password" type="password" />
                                             <button type="submit" class="btn btn-default">Login</button>
                                         </form>
                                     </li>
@@ -65,7 +65,10 @@
                                             <a href="/Cart/Index">
                                                 <span class="glyphicon glyphicon-shopping-cart cart">@Session["ItemsInCart"]</span>
                                             </a>
-                                            <button class="btn btn-default">Log out</button>
+                                            <form action="/User/Logout" method="post">
+                                                <button type="submit" class="btn btn-default">Log out</button>
+                                            </form>
+
                                         </div>
                                     </li>
                                 </ul>

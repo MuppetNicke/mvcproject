@@ -58,7 +58,9 @@ namespace WebShop.Controllers
             Product tmpProduct = tmpCart.ProductList.ElementAt(index).Key;
             tmpCart.RemoveProduct(tmpProduct);
             Session["Cart"] = tmpCart;
-            
+
+            Session["ItemsInCart"] = (int)Session["ItemsInCart"] - 1;
+
 
             return RedirectToAction("Index");
         }

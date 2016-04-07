@@ -57,8 +57,9 @@ namespace WebShop.Controllers
                     if (x.Password == password)
                     {
                         Session["UserLoggedIn"] = true;
-                        Session["CurrentUser"] = user;
+                        Session["CurrentUser"] = x.Name;
                         Session["Cart"] = new Cart();
+                        break;
                     }
                 }
 
