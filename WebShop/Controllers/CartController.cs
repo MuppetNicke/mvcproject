@@ -33,6 +33,8 @@ namespace WebShop.Controllers
                 Cart tmpCart = (Cart)Session["Cart"];
                 tmpCart.AddProduct(tmpList[index]);
                 Session["Cart"] = tmpCart;
+
+                Session["ItemsInCart"] = (int)Session["ItemsInCart"] + 1;
             }
 
             return Redirect("/Default/Index");
@@ -76,6 +78,8 @@ namespace WebShop.Controllers
                 Session["ListOfProducts"] = tmpList;
                 tmpCart.AddProduct(tmpProduct);
                 Session["Cart"] = tmpCart;
+
+                Session["ItemsInCart"] = (int)Session["ItemsInCart"] + 1;
             }
 
             return RedirectToAction("Index");

@@ -78,6 +78,7 @@ namespace WebShop.Controllers
             Session["UserLoggedIn"] = false;
             Session["CurrentUser"] = "";
             Session["Cart"] = new Cart();
+            Session["ItemsInCart"] = 0;
 
             return Redirect("/Default/Index");
         }
