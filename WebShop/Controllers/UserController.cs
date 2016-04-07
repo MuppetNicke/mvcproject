@@ -41,5 +41,39 @@ namespace WebShop.Controllers
             return Redirect("/Default/Index");
 
         }
+
+        [HttpPost]
+        public ActionResult Login()
+        {
+            string user = Request["emailInput"];
+            string password = Request["passwordInput"];
+            
+            foreach (User x in (List<User>)Session["ListOfUsers"])
+            {
+                if (x.Email == user)
+                {
+                    if(x.Password == password)
+                    {
+                        Session["UserLoggedIn"] = true;
+                        Session["CurrentUser"] = user;
+                        Session["Cart"] = new Cart();
+                    }
+                }
+
+                else { }
+            }
+
+            return Redirect("/Default/Index");
+        }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            Session["UserLoggedIn"] = false;
+            Session["CurrentUser"] = "";
+            Session["Cart"] = new Cart();
+
+            return Redirect("/Default/Index");
+        }
     }
 }
