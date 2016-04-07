@@ -19,46 +19,42 @@ namespace WebShop.Controllers
         [HttpPost]
         public ActionResult Register()
         {
-
             List<User> tmpList = (List<User>)Session["ListOfUsers"];
             string tmpMail = Request["mailInput"];
-            bool mailFound = false;
+            string tmpName = Request["nameInput"];
+            string tmpPassword = Request["passwordInput"];
+            string checkChars = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
-            foreach(User x in tmpList)
+            foreach (User x in tmpList)
             {
-                if(x.Email == tmpMail)
+                if (x.Email == tmpMail)
                 {
-                    mailFound = true;
-                    break;
+                    return Redirect("/User/Emailexists");
                 }
             }
 
-            if (mailFound)
+            if (tmpName.Length >= 6 && tmpMail != null && Regex.IsMatch(tmpMail, checkChars) && tmpPassword.Length >= 6)
             {
-                return Redirect("/Default/Index");
+                tmpList.Add(new User(tmpName, tmpMail, tmpPassword));
+                tmpList = (List<User>)Session["ListOfUsers"];
+                return Redirect("/User/Regsuccess");
             }
 
-            string tmpName = Request["nameInput"];
-            string tmpPassword = Request["passwordInput"];
-
-            tmpList.Add(new User(tmpName, tmpMail, tmpPassword));
-            tmpList = (List<User>)Session["ListOfUsers"];
-
-            return Redirect("/Default/Index");
+            return Redirect("/User/Regerror");
         }
 
-        
+
         [HttpPost]
         public ActionResult Login()
         {
             string user = Request["emailInput"];
             string password = Request["passwordInput"];
-            
+
             foreach (User x in (List<User>)Session["ListOfUsers"])
             {
                 if (x.Email == user)
                 {
-                    if(x.Password == password)
+                    if (x.Password == password)
                     {
                         Session["UserLoggedIn"] = true;
                         Session["CurrentUser"] = user;
@@ -81,6 +77,21 @@ namespace WebShop.Controllers
             Session["ItemsInCart"] = 0;
 
             return Redirect("/Default/Index");
+        }
+        [HttpGet]
+        public ActionResult Emailexists()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Regsuccess()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Regerror()
+        {
+            return View();
         }
     }
 }
