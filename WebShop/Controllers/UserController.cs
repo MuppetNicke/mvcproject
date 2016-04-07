@@ -19,10 +19,11 @@ namespace WebShop.Controllers
         [HttpPost]
         public ActionResult Register()
         {
-
             List<User> tmpList = (List<User>)Session["ListOfUsers"];
             string tmpMail = Request["mailInput"];
-            string checkChars = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{ 2,9})$";
+            string tmpName = Request["nameInput"];
+            string tmpPassword = Request["passwordInput"];
+            string checkChars = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
             foreach (User x in tmpList)
             {
@@ -31,9 +32,6 @@ namespace WebShop.Controllers
                     return Redirect("/User/Emailexists");
                 }
             }
-
-            string tmpName = Request["nameInput"];
-            string tmpPassword = Request["passwordInput"];
 
             if (tmpName.Length >= 6 && tmpMail != null && Regex.IsMatch(tmpMail, checkChars) && tmpPassword.Length >= 6)
             {
