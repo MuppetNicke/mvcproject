@@ -1,39 +1,130 @@
-﻿body {
-}
-
-.cart {
-    top: 0.3em;
-    font-size: 1.3em;
-}
-
-.topright {
+﻿/*
+#toggle-button{
+	border:1px solid black;
+	color:red;
+	position: relative;
     float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
 }
 
-.footer {
-    position: relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /*padding:em;*/
-    /*background-color: #efefef;*/
-    text-align: center;
+#logo: {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.companyLogo {
-    margin: auto;
-    /*width: 951.5px;*/
-    text-align: center;
-    padding: 1rem;
-    background-color: #efefef;
-    font-size: 46px;
+.footer{
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 5px;
+}
+*/
+
+body{
+	background-color: #e6e6e6;
 }
 
-.loginForms{
-    margin: 0px 0 0 0;
-    width: 140px;
-    font-size: 13.3333px;
+p{
+	font-family: sans-serif;
 }
-.registerBtn{
-   margin: -10px 0px 0px 0px ;
+
+.footer{
+  
+	background-color: white;
+	padding: 10px;
+    height:50px;
+}
+
+.navbar-style{
+	background-color: red;
+	color:white;
+	border-radius: 0px;
+}
+
+.large-icon{
+    font-size:30px;
+    color:red;
+}
+/*form*/
+
+.red-button{
+	border:none;
+	border-radius: 4px;
+	background-color: red;
+	color:white;
+	height:auto;
+	width:auto;
+}
+.input-red{
+	border:2px solid red;
+    height:auto;
+	border-radius: 4px;
+	color:red;
+}
+
+.input:scope{
+    border:1px solid green;
+}
+
+.login-input{
+    margin-bottom:5px;
+    width:200px;
+}
+
+
+/*content holder*/
+
+.main:before{
+	background-color: #C4E17F;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 10px;
+	border-radius: 10px 10px 0 0;
+	background-image: -webkit-linear-gradient(left, #F00, #A00 100%););
+	background-image: -moz-linear-gradient(left, #F00, #A00 100%););
+	background-image: -o-linear-gradient(left, #F00, #A00 100%);); 
+	background-image: linear-gradient(left, #F00, #A00 100%););
+
+}
+
+.main{
+    margin-top:20px;
+	background-color: white;
+	content: '';
+	-webkit-box-shadow: 5px 5px 9px 0px darkgrey;
+    -moz-box-shadow: 5px 5px 9px 0px darkgrey;
+    box-shadow: 5px 5px 9px 0px darkgrey;
+    padding: 15px 10px 15px 10px;
+    border-radius: 10px 10px 3px 3px;
+}
+
+/*table design*/
+table{
+
+	width: 100%;
+
+}
+
+tr:nth-child(even){
+	background-color: lightgrey;
+}
+
+td{
+	font-family: monospace;
+    padding:5px;
+	text-align: center;
+}
+
+.td-border-bottom{
+	border-bottom: 1px solid black;
+}
+
+td:first-child .td-border-top{
+    border-top: 1px solid black;
 }
