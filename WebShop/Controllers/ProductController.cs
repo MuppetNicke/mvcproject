@@ -79,5 +79,83 @@ namespace WebShop.Controllers
 
             return View(newList);
         }
+
+        public ActionResult ChangeProduct()
+        {
+
+            List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
+            List<Product> newList = new List<Product>();
+            
+
+            int productPrice = 0;
+            int productInStock = 0;
+
+            string productName = Request["newProductName"];
+            string productPriceStr = Request["newProductPrice"];
+            string productInStockStr = Request["newProductStock"];
+
+            int id = 0;
+
+
+            foreach (var item in tmpList)
+            {
+
+                if (productName.ToLower() == item.Name.ToLower())
+                {
+                    if (!string.IsNullOrWhiteSpace(productPriceStr))
+                    {
+                        if(int.TryParse(productPriceStr,out productPrice))
+                        {
+                            item.ChangePrice(productPrice);
+
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Product Price kunde inte konverteras till en int!");
+
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Product Price är tomt, ingen ändring");
+
+                    }
+
+
+                    if (!string.IsNullOrWhiteSpace(productInStockStr))
+                    {
+                        if (int.TryParse(productInStockStr, out productInStock))
+                        {
+                            item.ChangeStock(productInStock);
+
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Product In Stock kunde inte konverteras till en int!");
+
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Product In Stock är tomt, ingen ändring");
+
+                    }
+
+                    return RedirectToAction("../Product/GetProduct", new { id = id });
+                }
+
+                id++;
+            }
+            id--;
+
+
+            return RedirectToAction("../Product/GetProduct", new { id = id });
+        }
+
+
     }
 }

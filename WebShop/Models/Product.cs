@@ -43,5 +43,18 @@ namespace WebShop.Models
         {
             NumberInStock++;
         }
+
+        public void ChangePrice(int newPrice)
+        {
+            Price = newPrice;
+
+        }
+
+        public void ChangeStock(int newStock)
+        {
+            NumberInStock = newStock;
+
+        }
+
     }
 }

@@ -42,7 +42,8 @@ namespace WebShop
             {
                 new User("admin", "admin@shop.eu", "admin"),
                 new User("MrBlack", "black@google.com", "1234"),
-                new User("MrPink", "pink@google.com", "2345")
+                new User("MrPink", "pink@google.com", "2345"),
+                new User("hejsan", "hejsan@hejsan.se", "hejsan")
             };
         }
     }
