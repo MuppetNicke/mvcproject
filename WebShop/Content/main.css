@@ -65,6 +65,10 @@ p{
 	color:red;
 }
 
+.button-margin{
+    margin:5px;
+}
+
 .input:scope{
     border:1px solid green;
 }
