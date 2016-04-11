@@ -15,11 +15,13 @@ namespace WebShop.Models
 
         public int NumberInStock { get; private set; }
 
-        public Product(string pName, int pPrice, int pNumInStock)
+        public string Picture { get; private set; }
+        public Product(string pName, int pPrice, int pNumInStock, string pPicture)
         {
             Name = pName;
             Price = pPrice;
             NumberInStock = pNumInStock;
+            Picture = pPicture;
         }
 
         public bool ReduceStockCount()
