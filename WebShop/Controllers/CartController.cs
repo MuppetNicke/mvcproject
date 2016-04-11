@@ -16,6 +16,9 @@ namespace WebShop.Controllers
             return View(Session["Cart"]);
         }
 
+        /// <summary>
+        /// Add to cart from main-view
+        /// </summary>
         [HttpPost]
         public ActionResult AddToCart()
         {
@@ -38,6 +41,36 @@ namespace WebShop.Controllers
             }
 
             return Redirect("/Default/Index");
+        }
+
+        ///<summary>
+        /// Add to cart from product-view
+        /// </summary>
+        public ActionResult AddToCartFromProductView()
+        {
+            var name = Request["addToCartProductView"];
+            List<Product> tmpList = (List<Product>)Session["ListOfProducts"];
+
+            ///Find product index in list
+            for (int i = 0; i < tmpList.Count; i++)
+            {
+                if (tmpList[i].Name == name.ToString())
+                {
+                    if (tmpList[i].ReduceStockCount())
+                    {
+                        Session["ListOfProducts"] = tmpList;
+
+                        Cart tmpCart = (Cart)Session["Cart"];
+                        tmpCart.AddProduct(tmpList[i]);
+                        Session["Cart"] = tmpCart;
+
+                        Session["ItemsInCart"] = (int)Session["ItemsInCart"] + 1;
+                        return RedirectToAction("../Product/GetProduct", new { id = i });
+                    }
+                }
+            }
+            
+            return RedirectToAction("/Default/Index"); ///If error
         }
 
         /// <summary>

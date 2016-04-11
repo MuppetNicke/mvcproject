@@ -5,18 +5,22 @@
 <head>
     <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
 </head>
-<h2 class="registerh2">Registration</h2>
-<form class="registerUser" action="Register" method="post">
-    <fieldset>
-        Name: <br />
-        <input name="nameInput" placeholder="Minimum 6 characters" /><br />
-        Email: <br />
-        <input name="mailInput" /><br />
-        Password: <br />
-        <input name="passwordInput" type="password" placeholder="Minimum 6 characters" /><br />
-        <button type="submit">
-            Register
-        </button>
-    </fieldset>
-</form>
+
+
+<div class="text-center">
+    <h2>Registration </h2>
+    <form class="form-group" action="Register" method="post">
+        <fieldset>
+            Name: <br />
+            <input class="input-red" name="nameInput" placeholder="Minimum 6 characters" /><br />
+            Email: <br />
+            <input class="input-red" name="mailInput" /><br />
+            Password: <br />
+            <input class="input-red" name="passwordInput" type="password" placeholder="Minimum 6 characters" /><br />
+            <button class="button-margin red-button" type="submit">
+                Register
+            </button>
+        </fieldset>
+    </form>
+</div>
 
