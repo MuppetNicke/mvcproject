@@ -3,8 +3,9 @@
 <div row>
     <div class="container">
         <div class="col-xs-12 text-center">
-            <img src="~/product_pictures/@Html.DisplayFor(model => model.Picture)"/>
             <h2>@Model.Name</h2>
+            <img src="~/product_pictures/@Html.DisplayFor(model => model.Picture)" />
+
             <h3>Dollares: @Model.Price&#36;</h3>
             <h4>In stock: @Model.NumberInStock</h4>
             
