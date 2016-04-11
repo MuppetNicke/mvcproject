@@ -65,7 +65,7 @@ namespace WebShop.Controllers
                         Session["Cart"] = tmpCart;
 
                         Session["ItemsInCart"] = (int)Session["ItemsInCart"] + 1;
-                        return RedirectToAction("/Product/GetProduct",i);
+                        return RedirectToAction("../Product/GetProduct", new { id = i });
                     }
                 }
             }
