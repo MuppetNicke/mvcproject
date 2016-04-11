@@ -26,14 +26,18 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.NumberInStock)
                     </td>
-                    <td>
-                        <form action="/Cart/AddToCart" method="post">
-                            <input type="hidden" name="addtocart" value=@i />
-                            <button  class="red-button" type="submit">
-                                Add
-                            </button>
-                        </form>
-                    </td>
+                    @if ((bool)Session["UserLoggedIn"])
+                    {
+                        <td>
+                            <form action="/Cart/AddToCart" method="post">
+                                <input type="hidden" name="addtocart" value=@i />
+                                <button class="red-button" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        </td>
+                    }
+                    
                     @{ if ((string)Session["CurrentUser"] == "admin")
                        {
                             <td>
