@@ -9,7 +9,7 @@
         <div class="col-xs-12 text-center">
             <h2>@Model.Name</h2>
             <img src="~/product_pictures/@Html.DisplayFor(model => model.Picture)" />
-            <h3>Dollares: @Model.Price&#36;</h3>
+            <h3>Dollares: &#36;@Model.Price</h3>
             <h4>In stock: @Model.NumberInStock</h4>
             @if (IsLoggedIn)
             {

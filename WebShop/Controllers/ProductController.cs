@@ -15,7 +15,7 @@ namespace WebShop.Controllers
 
             string tmpName = Request["productName"];
             int tmpPrice, tmpStock;
-            string picLink = "";
+            string picLink = "../Content/steak.png";
 
             if (int.TryParse(Request["productPrice"], out tmpPrice) && int.TryParse(Request["productStock"], out tmpStock)
                 && tmpName != null)
