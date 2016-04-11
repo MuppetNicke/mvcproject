@@ -4,16 +4,14 @@
     ViewBag.Title = "Index";
     int i = 0;
 }
-
 <div class="row">
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-xs-12 col-sm-6">
 
-        <table class="table">
-
-            <tr>
-                <td><h4>Product</h4></td>
-                <td><h4>Price</h4></td>
-                <td><h4>In stock</h4></td>
+        <table>
+            <tr class="table-header">
+                <td class="td-border-bottom"><h4>Product</h4></td>
+                <td class="td-border-bottom"><h4>Price</h4></td>
+                <td class="td-border-bottom"><h4>Avail.</h4></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -34,26 +32,26 @@
                     </td>
                     @{ if ((bool)Session["UserLoggedIn"])
                         {
-                            <td>
+                            <td class="td-border-top">
                                 <form action="/Cart/AddToCart" method="post">
                                     <input type="hidden" name="addtocart" value=@i />
-                                    <button class="" type="submit">
-                                        Add to cart
+                                    <button class="red-button" type="submit">
+                                        Add
                                     </button>
                                 </form>
                             </td>
                         }
                     }
-                 
+
                     @{ if ((string)Session["CurrentUser"] == "admin")
                         {
 
 
-                            <td>
+                            <td class="td-border-top">
                                 <form action="/Product/RemoveProduct" method="post">
                                     <input type="hidden" name="removeproduct" value=@i />
-                                    <button name="removeBtn" class="" type="submit">
-                                        Remove product
+                                    <button class="red-button" name="removeBtn" type="submit">
+                                        Del
                                     </button>
                                 </form>
                             </td>}}
@@ -81,15 +79,18 @@
 @if ((string)Session["CurrentUser"] == "admin")
 {
     <div class="row">
-        <div class="container">
+        <div class="col-xs-12">
+
             <h2>Add product</h2>
             <form class="form-group" action="/Product/AddProduct" method="post">
-                <input type="text" name="productName" placeholder="Name of product" />
-                <input type="text" name="productPrice" placeholder="Price" />
-                <input type="text" name="productStock" placeholder="Nr in stock" />
-                <button type="submit">Add</button>
+                <input class="input-red" type="text" name="productName" placeholder="Name of product" />
+                <input class="input-red" type="text" name="productPrice" placeholder="Price" />
+                <input class="input-red" type="text" name="productStock" placeholder="Nr in stock" />
+                <button class="red-button" type="submit">Add</button>
             </form>
         </div>
+
     </div>
 }
+
 

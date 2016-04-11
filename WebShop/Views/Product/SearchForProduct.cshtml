@@ -27,17 +27,10 @@
                         @Html.DisplayFor(modelItem => item.NumberInStock)
                     </td>
                     <td>
-                        <form>
-                            <button>
-                                Info
-                            </button>
-                        </form>
-                    </td>
-                    <td>
                         <form action="/Cart/AddToCart" method="post">
                             <input type="hidden" name="addtocart" value=@i />
-                            <button class="" type="submit">
-                                Add to cart
+                            <button  class="red-button" type="submit">
+                                Add
                             </button>
                         </form>
                     </td>
@@ -46,7 +39,7 @@
                             <td>
                                 <form action="/Product/RemoveProduct" method="post">
                                     <input type="hidden" name="removeproduct" value=@i />
-                                    <button name="removeBtn" class="" type="submit">
+                                    <button class="red-button" name="removeBtn" class="" type="submit">
                                         Remove product
                                     </button>
                                 </form>

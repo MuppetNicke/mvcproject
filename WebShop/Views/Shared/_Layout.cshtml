@@ -1,107 +1,115 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        @{
-            bool IsLoggedIn = (bool)Session["UserLoggedIn"];
-        }
+<head>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{
+        bool IsLoggedIn = (bool)Session["UserLoggedIn"];
+    }
 
-        <title>@ViewBag.Title - DyrMat</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
+    <title>DyrMat</title>
 
-        <script src="~/Scripts/modernizr-2.6.2.js"></script>
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-    </head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
 
-    <body>
-        <header>
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+
+                <div class="navbar-header navbar-static-top">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                            <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <form class="navbar-form navbar-left" role="search" action="/Product/SearchForProduct" method="post">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search" name="searchField">
-                                    </div>
-                                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                                </form>
-                            </li>
-                        </ul>
-
-                        @{ if (!IsLoggedIn)
-                           {
-                                <ul class="nav navbar-nav navbar-right">
-
-                                    <li>
-                                        <form action="/User/Login" method="post" class="navbar-form navbar-right">
-                                            <input class="form-control loginForms" name = "emailInput" placeholder="Email" />
-                                            <input class="form-control loginForms" name = "passwordInput" placeholder="Password" type="password" />
-                                            <button type="submit" class="btn btn-default">Login</button>
-                                        </form>
-                                    </li>
-
-                                </ul>
-                            }
-
-                            else
-                            {
-                                <ul>
-                                    <li>
-                                        <div class="navbar-btn navbar-right">
-                                            <a href="/Cart/Index">
-                                                <span class="glyphicon glyphicon-shopping-cart cart">@Session["ItemsInCart"]</span>
-                                            </a>
-                                            <form action="/User/Logout" method="post">
-                                                <button type="submit" class="btn btn-default">Log out</button>
-                                            </form>
-
-                                        </div>
-                                    </li>
-                                </ul>
-                            }
-                        }
-                    </div>
                 </div>
-            </nav>
-            
-            <div class="row">
-                
-                <div class="container">
-                    
-                    <a href="/"><img class="img-responsive" src="~/Content/logga.png" /></a>
+
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="nav navbar-nav collapsed">
+                        <li>
+                            <form class="navbar-form" role="search" action="/Product/SearchForProduct" method="post">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Search" class="form-control" name="searchField"/>
+                                </div>
+                                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </form>
+                        </li>
+                        @if (IsLoggedIn)
+                        {
+                        <li>
+                            <form action="/User/Logout" method="post" class="navbar-form">
+                                <button type="submit" class="btn btn-default">Log out</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="navbar-form navbar-right">
+                                <a href="/Cart/Index"><span class="glyphicon glyphicon-shopping-cart large-icon"></span></a><span class="large-icon">@Session["ItemsInCart"]</span>
+                            </form>
+                        </li>
+                        }
+
+                        @if(!IsLoggedIn)
+                        {
+                        <li class="dropdown" style="width:100px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form class="navbar-form" role="form" action="/User/Login" method="post">
+                                        <div class="input-group">
+                                            <input id="email" type="email" class="form-control" name="emailInput" value="" placeholder="Email Address">
+                                        </div>
+
+                                        <div class="input-group">
+                                            <input id="password" type="password" class="form-control" name="passwordInput" value="" placeholder="Password">
+                                        </div>
+
+                                        <button type="submit" class="btn">Login</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/User/Index">Register</a>
+                        </li>
+                        }
+                    </ul>
                 </div>
             </div>
-        </header>
+        </nav>
 
-        <div class="container body-content">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <a href="/Default/Index"><img class="img-responsive" src="~/Content/logga.png" /></a>
+        </div>
+    </div>
+    </header>
 
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 main">
             @RenderBody()
         </div>
+    </div>
 
-        <footer class="footer">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 main">
+            <footer class="footer">
+                <div class="row text-center">
+                    <h5>&copy; @DateTime.Now.Year - SvindyrMatScandinaviaAB. info@dyrmat.se</h5>
+                </div>
+            </footer>
+        </div>
+    </div>
 
-            <span>&copy; @DateTime.Now.Year - SvindyrMatScandinaviaAB. info@dyrmat.se</span>
-
-            @{ if (!IsLoggedIn)
-                {
-                    <form action="/User/Index" method="post">
-                        <button type="submit" class="btn btn-default navbar-right registerBtn">Register</button>
-                    </form>
-                }}
-        </footer>
-    </body>
+</body>
 </html>
