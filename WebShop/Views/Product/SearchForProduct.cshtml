@@ -48,6 +48,16 @@
                                     </button>
                                 </form>
                             </td>
+
+                            <td>
+                                <form action="/Product/ChangeProduct" method="post">
+                                    <input type="hiddden" name="changeProduct" value=@i />
+                                    <button class="red-button" name="changeBtn" class="" type="submit">
+                                        Change product
+                                    </button>
+                                </form>
+
+                            </td>
                        }
                     }
                     @{ i++; }
