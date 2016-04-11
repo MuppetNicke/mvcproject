@@ -1,13 +1,25 @@
 ﻿@model WebShop.Models.Product
-
+<header>
+    @{
+        bool IsLoggedIn = (bool)Session["UserLoggedIn"];
+    }
+</header>
 <div row>
     <div class="container">
         <div class="col-xs-12 text-center">
-
             <h2>@Model.Name</h2>
+            <img src="~/product_pictures/@Html.DisplayFor(model => model.Picture)" />
             <h3>Dollares: @Model.Price&#36;</h3>
             <h4>In stock: @Model.NumberInStock</h4>
-            
+            @if (IsLoggedIn)
+            {
+                <form action="/Cart/AddToCartFromProductView" method="post">
+                    <input type="hidden" value="@Model.Name" name="addToCartFromProductView" />
+                    <button class="red-button" type="submit">Add</button>
+                </form>
+            }
+
+
         </div>
     </div>
 </div>

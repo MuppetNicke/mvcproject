@@ -24,19 +24,18 @@ namespace WebShop
 
             Session["ListOfProducts"] = new List<Product>()
             {
-
-                new Product("Tomato", 20, 3),
-                new Product("Cucumber", 12, 1),
-                new Product("Potatoes", 2, 3),
-                new Product("Pasta", 41, 3),
-                new Product("Rice", 11, 90),
-                new Product("Hummus", 299, 8),
-                new Product("Cola", 499, 12),
-                new Product("Water", 300, 11),
-                new Product("T-bone", 2010, 4),
-                new Product("Salomon", 9900, 1),
-                new Product("Fries", 100, 30),
-                new Product("Watermelon", 80, 2)
+                new Product("Tomato", 20, 3, "../Content/product_pictures/tomato140.png"),
+                new Product("Cucumber", 12, 1, "../Content/product_pictures/cucumber140.png"),
+                new Product("Potatoes", 2, 3, "../Content/product_pictures/potatoes140.png"),
+                new Product("Pasta", 41, 3, "../Content/product_pictures/pasta140.png"),
+                new Product("Rice", 11, 90, "../Content/product_pictures/rice140.png"),
+                new Product("Hummus", 299, 8, "../Content/product_pictures/hummus140.png"),
+                new Product("Cola", 499, 12, "../Content/product_pictures/coke140.png"),
+                new Product("Water", 300, 11, "../Content/product_pictures/water140.png"),
+                new Product("T-bone", 2010, 4, "../Content/product_pictures/t-bone140.png"),
+                new Product("Salomon", 9900, 1, "../Content/product_pictures/salomon140.png"),
+                new Product("Fries", 100, 30, "../Content/product_pictures/fries140.png"),
+                new Product("Watermelon", 80, 2, "../Content/product_pictures/watermelon140.png")
             };
 
             Session["ListOfUsers"] = new List<User>()
