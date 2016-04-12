@@ -132,3 +132,6 @@ td{
 td:first-child .td-border-top{
     border-top: 1px solid black;
 }
+.currentUserPos{
+    margin: 15px 0 0 0;
+}

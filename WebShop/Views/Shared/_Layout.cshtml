@@ -4,6 +4,7 @@
 
     @{
         bool IsLoggedIn = (bool)Session["UserLoggedIn"];
+        string currentUser = (string)Session["CurrentUser"];
     }
 
     <meta charset="utf-8" />
@@ -47,6 +48,9 @@
                         </li>
                         @if (IsLoggedIn)
                         {
+                            <li>
+                                <h4 class="currentUserPos"> @currentUser</h4>
+                            </li>
                         <li>
                             <form action="/User/Logout" method="post" class="navbar-form">
                                 <button type="submit" class="btn btn-default">Log out</button>
