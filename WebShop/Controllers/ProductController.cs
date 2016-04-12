@@ -94,66 +94,43 @@ namespace WebShop.Controllers
             string productPriceStr = Request["newProductPrice"];
             string productInStockStr = Request["newProductStock"];
 
-            int id = 0;
+            int index = 0;
 
 
-            foreach (var item in tmpList)
+            //foreach (var item in tmpList)
+            for(int i = 0; i<tmpList.Count; i++)
             {
+                Product item = tmpList[i];
 
                 if (productName.ToLower() == item.Name.ToLower())
                 {
+
+                    index = i;
+
+                    ///Change price
                     if (!string.IsNullOrWhiteSpace(productPriceStr))
                     {
-                        if(int.TryParse(productPriceStr,out productPrice))
+                        if (int.TryParse(productPriceStr, out productPrice))
                         {
+
                             item.ChangePrice(productPrice);
-
-                            
                         }
-                        else
-                        {
-                            Console.WriteLine("Product Price kunde inte konverteras till en int!");
-
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Product Price är tomt, ingen ändring");
-
                     }
 
-
+                    ///Change amount of items in stock
                     if (!string.IsNullOrWhiteSpace(productInStockStr))
                     {
                         if (int.TryParse(productInStockStr, out productInStock))
                         {
+
                             item.ChangeStock(productInStock);
-
-
                         }
-                        else
-                        {
-                            Console.WriteLine("Product In Stock kunde inte konverteras till en int!");
-
-                        }
-
                     }
-                    else
-                    {
-                        Console.WriteLine("Product In Stock är tomt, ingen ändring");
-
-                    }
-
-                    return RedirectToAction("../Product/GetProduct", new { id = id });
+                    return RedirectToAction("../Product/GetProduct", new { id = i });
                 }
-
-                id++;
             }
-            id--;
 
-
-            return RedirectToAction("../Product/GetProduct", new { id = id });
+            return RedirectToAction("../Product/GetProduct", new { id = index });
         }
 
 
